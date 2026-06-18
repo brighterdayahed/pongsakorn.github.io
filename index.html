@@ -6,22 +6,60 @@
     <meta name="description" content="เว็บไซต์แสดงผลงานและทักษะของ PONGSAKORN">
     <title>ความภาคภูมิใจของ PONGSAKORN</title>
     <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* จัดโครงสร้างให้แต่ละทักษะแบ่งเป็นช่อง ๆ ในแถวเดียวกัน */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px 0;
+        }
+
+        /* ตกแต่งดีไซน์ของแต่ละช่องทักษะ */
+        .skill-box {
+            background-color: #f9f9f9;
+            border: 2px solid #e3e3e3;
+            border-radius: 12px;
+            padding: 20px;
+            list-style: none; /* เอาจุดกลมๆ ข้างหน้าออก */
+            cursor: pointer;
+            
+            /* ตั้งค่าความสมูทในการเด้ง */
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+                        box-shadow 0.3s ease, 
+                        border-color 0.3s ease;
+        }
+
+        /* เอฟเฟกต์ตอนเอาเมาส์ไปชี้ หรือตอนใช้นิ้วกดบนมือถือ ให้กล่องเด้งขึ้นมา */
+        .skill-box:hover, .skill-box:active {
+            transform: translateY(-8px) scale(1.02); /* ลอยขึ้นและขยายออกเล็กน้อย */
+            border-color: #4a90e2; /* เปลี่ยนสีขอบตอนกด/ชี้ (เปลี่ยนสีได้ตามชอบ) */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); /* เพิ่มเงาให้ดูมีมิติลอยขึ้นมา */
+            background-color: #ffffff;
+        }
+
+        /* ตกแต่งหัวข้อทักษะ */
+        .skill-box strong {
+            display: block;
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: #333;
+        }
+    </style>
 </head>
 <body>
 
-    <!-- ส่วนหัวของเว็บ -->
     <header>
         <h1>สวัสดี! ฉันคือ PONGSAKORN</h1>
         <p>นี่คือผลงานและความภาคภูมิใจของฉัน</p>
     </header>
 
-    <!-- ส่วนเกี่ยวกับตัวเอง -->
     <section id="about">
         <h2>เกี่ยวกับฉัน</h2>
         <p>ฉันเป็นนักเรียนที่ชอบในการออกแบบการเต้นและรักในการศึกษาภาษาอังกฤษ</p>
     </section>
 
-    <!-- ส่วนแสดงผลงาน (ปรับปรุงใหม่ให้ตรงกับสายเต้นและภาษา) -->
     <section id="projects">
         <h2>ผลงานของฉัน</h2>
 
@@ -36,17 +74,24 @@
         </div>
     </section>
 
-    <!-- ส่วนแสดงทักษะ (ปรับปรุงใหม่ให้ครอบคลุมรอบด้าน) -->
     <section id="skills">
         <h2>ทักษะของฉัน</h2>
-        <ul>
-            <li><strong>Dance & Arts:</strong> การออกแบบท่าเต้น (Choreography)</li>
-            <li><strong>Language Skills:</strong> ทักษะภาษาอังกฤษ (การฟัง, การพูด, และการแปลบทความ)</li>
-            <li><strong>Audio Editing:</strong> การตัดต่อเสียง, มิกซ์เพลง</li>
+        <ul class="skills-grid">
+            <li class="skill-box">
+                <strong>Dance & Arts</strong> 
+                การออกแบบท่าเต้น (Choreography)
+            </li>
+            <li class="skill-box">
+                <strong>Language Skills</strong> 
+                ทักษะภาษาอังกฤษ (การฟัง, การพูด, และการแปลบทความ)
+            </li>
+            <li class="skill-box">
+                <strong>Audio Editing</strong> 
+                การตัดต่อเสียง, มิกซ์เพลง
+            </li>
         </ul>
     </section>
 
-    <!-- ติดต่อฉัน -->
     <footer>
         <p>ติดต่อฉันได้ที่:
             <a href="mailto:s34478@banbung.ac.th">s34478@banbung.ac.th</a>
@@ -54,5 +99,7 @@
         <p>&copy; <span id="year"></span> PONGSAKORN. All rights reserved.</p>
     </footer>
 
+</body>
+</html>
 </body>
 </html>
