@@ -6,8 +6,11 @@ body {
     line-height: 1.7;
     margin: 0;
     padding: 0;
-    background-color: #fff5f5;
     color: #4a4a4a;
+
+    /* 🎨 แก้ไขตรงนี้: ไล่สีพื้นหลังจากตรงกลาง (ขาว) ออกไปหาขอบ (ชมพูอ่อน) */
+    background-image: radial-gradient(circle, #ffffff 40%, #fff0f0 100%);
+    background-attachment: fixed;      /* ล็อกพื้นหลังไว้ไม่ให้เลื่อนตามการสกรอลล์หน้าจอ */
 }
 
 header {
@@ -37,12 +40,9 @@ section {
     margin: 40px auto;
     max-width: 750px;
     background: #ffffff;
-    border-radius: 16px; 
-    box-shadow: 0 10px 25px rgba(255, 182, 185, 0.15); 
-    border: 1px solid #fff0f0; 
-}px; /* เพิ่มความโค้งมนให้ดูมนๆ น่ารักเป็นมิตร */
-    
-    /* สไตล์เงาแบบฟุ้งกระจาย ละมุนตา ไม่ทึบ */
-    box-shadow: 0 10px 25px rgba(255, 182, 185, 0.15); 
+    border-radius: 16px;              /* เพิ่มความโค้งมนให้ดูมนๆ น่ารักเป็นมิตร */
+    box-shadow: 0 10px 25px rgba(255, 182, 185, 0.15); /* สไตล์เงาแบบฟุ้งกระจาย ละมุนตา ไม่ทึบ */
+    border: 1px solid #fff0f0;         /* ขอบจางๆ เพิ่มความเนี๊ยบ */
+}ba(255, 182, 185, 0.15); 
     border: 1px solid #fff0f0; /* ขอบจางๆ เพิ่มความเนี๊ยบ */
 }
