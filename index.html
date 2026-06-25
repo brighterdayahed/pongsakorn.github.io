@@ -34,7 +34,7 @@
         /* เอฟเฟกต์ตอนเอาเมาส์ไปชี้ หรือตอนใช้นิ้วกดบนมือถือ ให้กล่องเด้งขึ้นมา */
         .skill-box:hover, .skill-box:active {
             transform: translateY(-8px) scale(1.02); /* ลอยขึ้นและขยายออกเล็กน้อย */
-            border-color: #4a90e2; /* เปลี่ยนสีขอบตอนกด/ชี้ (เปลี่ยนสีได้ตามชอบ) */
+            border-color: #4a90e2; /* เปลี่ยนสีขอบตอนกด/ชี้ */
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); /* เพิ่มเงาให้ดูมีมิติลอยขึ้นมา */
             background-color: #ffffff;
         }
@@ -51,7 +51,10 @@
 <body>
 
     <header>
-        <h1>สวัสดี! ฉันคือ PONGSAKORN</h1>
+        <h1>
+            สวัสดี!<br>
+            ฉันคือ PONGSAKORN
+        </h1>
         <p>นี่คือผลงานและความภาคภูมิใจของฉัน</p>
     </header>
 
@@ -99,7 +102,8 @@
         <p>&copy; <span id="year"></span> PONGSAKORN. All rights reserved.</p>
     </footer>
 
-</body>
-</html>
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>
