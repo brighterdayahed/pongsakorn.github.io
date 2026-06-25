@@ -50,22 +50,28 @@
         /* ตกแต่งรูปภาพผลงานเพิ่มเติมให้อยู่ในกรอบสวยงาม */
         .skill-box img {
             display: block;
-            margin-top: 10px;
-            border-radius: 6px;
+            margin: 15px auto 0 auto; /* จัดรูปให้อยู่ตรงกลางกล่องพอดี */
+            max-width: 100%;          /* ป้องกันไม่ให้รูปใหญ่เกินขนาดกล่อง */
+            height: auto;             /* รักษาอัตราส่วนภาพไม่ให้เบี้ยว */
+            border-radius: 8px;       /* ทำมุมมนให้เข้ากับกล่องหลัก */
             border: 1px solid #ddd;
+        }
+
+        /* สไตล์พิเศษสำหรับกล่องเกี่ยวกับฉัน เพื่อจัดข้อความให้อยู่ตรงกลาง */
+        .about-center {
+            text-align: center;
+            padding: 40px 20px; /* เพิ่มพื้นที่กว้างๆ ให้ดูโล่งสบายตา */
         }
     </style>
 </head>
 <body>
 
-    <section id="about">
+    <section id="about" class="about-center">
         <h2>เกี่ยวกับฉัน</h2>
-        <h1>
-            สวัสดี!<br>
-            ฉันคือ PONGSAKORN
-        </h1>
-        <p>นี่คือผลงานและความภาคภูมิใจของฉัน</p>
-        <hr style="border: 0; border-top: 1px solid #e3e3e3; margin: 20px 0;">
+        <h1>สวัสดี!</h1>
+        <h3>ฉันคือ PONGSAKORN</h3>
+        <p style="color: #666; font-style: italic;">นี่คือผลงานและความภาคภูมิใจของฉัน</p>
+        <hr style="border: 0; border-top: 1px solid #e3e3e3; margin: 20px auto; max-width: 150px;">
         <p>ฉันเป็นนักเรียนที่ชอบในการออกแบบการเต้นและรักในการศึกษาภาษาอังกฤษ</p>
     </section>
 
@@ -107,7 +113,7 @@
             <li class="skill-box">
                 <strong>งานที่ 1</strong>
                 รายละเอียดหรือคำอธิบายเกี่ยวกับงานชิ้นที่ 1
-                <img src="ข้อควรระวังในแบ่งปันข้อมูลบนโซเชียลมีเดีย.png" width="80%" alt="งานที่ 1">
+                <img src="ข้อควรระวังในแบ่งปันข้อมูลบนโซเชียลมีเดีย.png" alt="งานที่ 1">
             </li>
             <li class="skill-box">
                 <strong>งานที่ 2</strong>
@@ -132,4 +138,3 @@
     </script>
 </body>
 </html>
-   
