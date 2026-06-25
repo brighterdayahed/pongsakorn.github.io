@@ -61,9 +61,17 @@
         .welcome-section {
             text-align: center;
             padding: 50px 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* เพิ่มลูกเล่นสีพื้นหลังไล่เฉดให้อ่านง่ายและเด่นขึ้น */
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
             border-radius: 12px;
             margin-bottom: 20px;
+        }
+
+        /* สไตล์สำหรับจัด Footer ให้อยู่กึ่งกลางหน้าเว็บ */
+        .footer-center {
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.95rem;
+            line-height: 1.8;
         }
     </style>
 </head>
@@ -131,9 +139,9 @@
         </ul>
     </section>
 
-    <footer>
-        <p>ติดต่อฉันได้ที่:
-            <a href="mailto:s34478@banbung.ac.th">s34478@banbung.ac.th</a>
+    <footer class="footer-center">
+        <p>ติดต่อฉันได้ที่: 
+            <a href="mailto:s34478@banbung.ac.th" style="color: #4a90e2; text-decoration: none;">s34478@banbung.ac.th</a>
         </p>
         <p>&copy; <span id="year"></span> PONGSAKORN. All rights reserved.</p>
     </footer>
