@@ -57,21 +57,26 @@
             border: 1px solid #ddd;
         }
 
-        /* สไตล์พิเศษสำหรับกล่องเกี่ยวกับฉัน เพื่อจัดข้อความให้อยู่ตรงกลาง */
-        .about-center {
+        /* สไตล์พิเศษสำหรับกล่องต้อนรับแรก เพื่อจัดข้อความให้อยู่ตรงกลาง */
+        .welcome-section {
             text-align: center;
-            padding: 40px 20px; /* เพิ่มพื้นที่กว้างๆ ให้ดูโล่งสบายตา */
+            padding: 50px 20px;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); /* เพิ่มลูกเล่นสีพื้นหลังไล่เฉดให้อ่านง่ายและเด่นขึ้น */
+            border-radius: 12px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
 
-    <section id="about" class="about-center">
-        <h2>เกี่ยวกับฉัน</h2>
+    <section id="welcome" class="welcome-section">
         <h1>สวัสดี!</h1>
-        <h3>ฉันคือ PONGSAKORN</h3>
-        <p style="color: #666; font-style: italic;">นี่คือผลงานและความภาคภูมิใจของฉัน</p>
-        <hr style="border: 0; border-top: 1px solid #e3e3e3; margin: 20px auto; max-width: 150px;">
+        <h2>ฉันคือ PONGSAKORN</h2>
+        <p style="color: #555; font-style: italic; margin-top: 10px;">นี่คือผลงานและความภาคภูมิใจของฉัน</p>
+    </section>
+
+    <section id="about">
+        <h2>เกี่ยวกับฉัน</h2>
         <p>ฉันเป็นนักเรียนที่ชอบในการออกแบบการเต้นและรักในการศึกษาภาษาอังกฤษ</p>
     </section>
 
