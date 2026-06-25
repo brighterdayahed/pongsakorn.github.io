@@ -16,7 +16,7 @@
             padding: 20px 0;
         }
 
-        /* ตกแต่งดีไซน์ของแต่ละช่องทักษะ */
+        /* ตกแต่งดีไซน์ของแต่ละช่องทักษะและช่องผลงาน */
         .skill-box {
             background-color: #f9f9f9;
             border: 2px solid #e3e3e3;
@@ -39,27 +39,33 @@
             background-color: #ffffff;
         }
 
-        /* ตกแต่งหัวข้อทักษะ */
+        /* ตกแต่งหัวข้อทักษะ / หัวข้องาน */
         .skill-box strong {
             display: block;
             font-size: 1.15rem;
             margin-bottom: 8px;
             color: #333;
         }
+
+        /* ตกแต่งรูปภาพผลงานเพิ่มเติมให้อยู่ในกรอบสวยงาม */
+        .skill-box img {
+            display: block;
+            margin-top: 10px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
     </style>
 </head>
 <body>
 
-    <header>
+    <section id="about">
+        <h2>เกี่ยวกับฉัน</h2>
         <h1>
             สวัสดี!<br>
             ฉันคือ PONGSAKORN
         </h1>
         <p>นี่คือผลงานและความภาคภูมิใจของฉัน</p>
-    </header>
-
-    <section id="about">
-        <h2>เกี่ยวกับฉัน</h2>
+        <hr style="border: 0; border-top: 1px solid #e3e3e3; margin: 20px 0;">
         <p>ฉันเป็นนักเรียนที่ชอบในการออกแบบการเต้นและรักในการศึกษาภาษาอังกฤษ</p>
     </section>
 
@@ -94,16 +100,25 @@
             </li>
         </ul>
     </section>
-     <section id="skills">
-         <h2>ผลงานวิชาคอมพิวเตอร์</h2>
-        <li>งานที่1</li>
-        <img src="ข้อควรระวังในแบ่งปันข้อมูลบนโซเชียลมีเดีย.png" width="30%">
-        <li>งานที่2</li>
-        <li>งานที่3</li>
-    </section>
-</body>
-</html>
 
+    <section id="computer-works">
+        <h2>ผลงานวิชาคอมพิวเตอร์</h2>
+        <ul class="skills-grid">
+            <li class="skill-box">
+                <strong>งานที่ 1</strong>
+                รายละเอียดหรือคำอธิบายเกี่ยวกับงานชิ้นที่ 1
+                <img src="ข้อควรระวังในแบ่งปันข้อมูลบนโซเชียลมีเดีย.png" width="80%" alt="งานที่ 1">
+            </li>
+            <li class="skill-box">
+                <strong>งานที่ 2</strong>
+                รายละเอียดหรือคำอธิบายเกี่ยวกับงานชิ้นที่ 2
+            </li>
+            <li class="skill-box">
+                <strong>งานที่ 3</strong>
+                รายละเอียดหรือคำอธิบายเกี่ยวกับงานชิ้นที่ 3
+            </li>
+        </ul>
+    </section>
 
     <footer>
         <p>ติดต่อฉันได้ที่:
@@ -115,5 +130,6 @@
     <script>
         document.getElementById("year").textContent = new Date().getFullYear();
     </script>
-    
+</body>
+</html>
    
