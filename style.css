@@ -1,3 +1,20 @@
+เจอปัญหาแล้วครับ! ปัญหาที่ทำให้คุณ "ไม่เห็นสีกระจายจากขอบ" เป็นเพราะในโค้ด HTML ของคุณ (จากข้อความก่อนหน้า) มีการสร้างคลาสสไตล์ที่ชื่อว่า .welcome-section ทับไว้แบบนี้ครับ:
+
+CSS
+.welcome-section {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
+}
+และในโค้ด HTML แถวแรกสุดก็ดันใช้กล่องนี้เป็นตัวเปิดหน้าเว็บ:
+
+HTML
+<section id="welcome" class="welcome-section">
+    <h1>สวัสดี!</h1>
+</section>
+สีพื้นหลังสีเทา-ฟ้าของกล่องนี้มันเลยกางใหญ่บังหน้าจอทับสีชมพูที่เราอุตส่าห์ไล่สีไว้ใน body ซะมิดเลยครับ!
+
+เพื่อให้หน้าเว็บของคุณเชื่อมต่อกันอย่างสมบูรณ์แบบ ทั้งเรื่องไล่สีขอบชมพู และเปลี่ยนสีคำว่า "สวัสดี!" ผมรวมโค้ด CSS ล่าสุดที่แก้ไขจุดพังทั้งหมดมาให้แล้วครับ เอาชุดนี้ไปใส่ในไฟล์ style.css ได้เลย:
+
+CSS
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600;700&family=Prompt:wght@300;400&display=swap');
 
 body {
@@ -8,41 +25,94 @@ body {
     padding: 0;
     color: #4a4a4a;
 
-    /* 🛠️ 1. เพิ่มบรรทัดนี้เพื่อบังคับให้หน้าเว็บสูงเต็มจอ จะได้เห็นสีที่ไล่จากขอบชัดๆ */
+    /* ✅ ไล่สีจากขอบหน้าจอ (ขาวไปชมพูเข้มแบบเห็นชัดๆ) */
     min-height: 100vh; 
-
-    /* 🛠️ 2. ปรับให้ขอบเข้มขึ้นเป็นสี #ffd6d6 (สีเดียวกับ Header) จะได้เห็นความต่างชัดเจนขึ้นครับ */
-    background-image: radial-gradient(circle, #ffffff 30%, #ffd6d6 100%);
+    background-image: radial-gradient(circle, #ffffff 20%, #ffe0e0 70%, #ffd6d6 100%);
     background-attachment: fixed;
 }
 
-header {
-    background: #ffd6d6;
-    color: #6d4c41;
-    padding: 40px 0;
+/* ✅ เอาส่วนของ Header ออก เพราะใน HTML คุณใช้ <section id="welcome"> แทนแล้ว */
+/* แต่เราจะเปลี่ยนมาแต่งคลาส .welcome-section ให้โปร่งใสแทน เพื่อให้เห็นสีกระจายจากขอบของ body ครับ */
+.welcome-section {
     text-align: center;
-    border-bottom: 3px solid #ffeae7;
+    padding: 60px 20px;
+    background: transparent; /* เปลี่ยนจากสีเทา-ฟ้า เป็นโปร่งใสซะ! */
+    margin-bottom: 20px;
 }
 
-header h1 {
+/* 🎨 เพิ่มตรงนี้: เปลี่ยนสีตัวอักษรคำว่า "สวัสดี!" */
+.welcome-section h1 {
     font-family: 'Kanit', sans-serif;
-    margin: 0;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    color: #ff4a73; /* เปลี่ยนเป็นสีชมพูเข้มสดใส สะดุดตา */
+    margin: 0;
 }
 
-header p {
-    margin: 8px 0 0;
-    font-size: 1rem;
-    opacity: 0.85;
+.welcome-section h2 {
+    font-family: 'Kanit', sans-serif;
+    color: #6d4c41; /* สีน้ำตาลอบอุ่น */
+    margin: 10px 0 0 0;
 }
 
 section {
     padding: 30px;
-    margin: 40px auto;
+    margin: 30px auto;
     max-width: 750px;
     background: #ffffff;
+    border-radius: 16px;              /* เพิ่มความโค้งมนน่ารักเป็นมิตร */
+    box-shadow: 0 10px 25px rgba(255, 182, 185, 0.2); /* สไตล์เงาแบบฟุ้งกระจายอมชมพู */
+    border: 1px solid #fff0f0;         /* ขอบจางๆ เพิ่มความเนี๊ยบ */
+}
+
+/* สำหรับจัดการ Grid ทักษะใน HTML ของคุณให้สวยงาม */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+    margin: 0;
+}
+
+.skill-box {
+    background-color: #fffafb;
+    border: 1px solid #ffe3e5;
+    border-radius: 12px;
+    padding: 20px;
+    list-style: none;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.skill-box:hover {
+    transform: translateY(-5px);
+    border-color: #ff4a73;
+    box-shadow: 0 10px 20px rgba(255, 74, 115, 0.15);
+    background-color: #ffffff;
+}
+
+.skill-box strong {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #ff4a73;
+}
+
+.skill-box img {
+    display: block;
+    margin: 15px auto 0 auto;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #ffe3e5;
+}
+
+.footer-center {
+    text-align: center;
+    padding: 40px 20px;
+    font-size: 0.95rem;
+    color: #8c7b75;
+}
     border-radius: 16px;
     box-shadow: 0 10px 25px rgba(255, 182, 185, 0.15);
     border: 1px solid #fff0f0;
