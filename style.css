@@ -80,7 +80,7 @@ body::before {
 /* ✨ Small Welcome Banner */
 .welcome-section {
     text-align: center;
-    padding: 45px 20px 35px;
+    padding: 20px 20px 16px;
     background: transparent;
     margin: 0 auto 10px;
 }
