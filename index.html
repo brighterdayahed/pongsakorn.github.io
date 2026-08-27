@@ -6,6 +6,7 @@
     <meta name="description" content="เว็บไซต์แสดงผลงานและทักษะของ PONGSAKORN">
     <title>ความภาคภูมิใจของ PONGSAKORN</title>
 
+    <!-- Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -13,82 +14,88 @@
     <link rel="stylesheet" href="style.css">
 
     <style>
+
+        /* ===== พื้นฐาน ===== */
+
         * {
             box-sizing: border-box;
         }
 
         body {
             font-family: 'Prompt', sans-serif;
-            margin: 0;
-            background: #f7f8fa;
-            color: #333;
             line-height: 1.7;
         }
 
-        section {
-            max-width: 1100px;
-            margin: 0 auto 50px;
-            padding: 0 20px;
-        }
 
-        section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
+        /* ===== Welcome Banner ===== */
 
-        /* Welcome Banner */
         .welcome-section {
-            max-width: 1100px;
             text-align: center;
-            padding: 30px 20px;
-            margin: 25px auto 50px;
 
+            /* ลดขนาด Banner ลงเล็กน้อย */
+            padding: 22px 16px;
+
+            /* ใช้สีเดิมของคุณ */
             background: linear-gradient(
                 135deg,
                 #f5f7fa 0%,
-                #dfe6f0 100%
+                #c3cfe2 100%
             );
 
-            border-radius: 18px;
-            border: 1px solid #e3e7ed;
+            border-radius: 16px;
+            margin-bottom: 35px;
         }
 
         .welcome-section h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin: 0 0 2px;
             font-weight: 600;
         }
 
         .welcome-section h2 {
-            font-size: 1.35rem;
+            font-size: 1.25rem;
             margin: 0;
             font-weight: 500;
         }
 
         .welcome-section p {
-            color: #666;
+            color: #555;
             font-style: italic;
-            margin: 8px 0 0;
-            font-size: 0.95rem;
+            margin: 6px 0 0;
+            font-size: 0.9rem;
         }
 
-        /* Project Cards */
+
+        /* ===== Section ===== */
+
+        section h2 {
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+
+        /* ===== Projects ===== */
+
         .project {
-            background: #fff;
-            padding: 22px 25px;
+            padding: 22px 24px;
             margin-bottom: 18px;
+
             border-radius: 14px;
-            border: 1px solid #e7e7e7;
+            border: 1px solid #e3e3e3;
 
             transition:
                 transform 0.3s ease,
-                box-shadow 0.3s ease;
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
         }
 
         .project:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.08);
+
+            border-color: #4a90e2;
         }
 
         .project h3 {
@@ -97,24 +104,30 @@
             font-weight: 600;
         }
 
-        /* Skills Grid */
+
+        /* ===== Skills Grid ===== */
+
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(250px, 1fr)
-            );
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(250px, 1fr));
 
             gap: 20px;
+
             padding: 0;
             margin: 0;
         }
 
+
+        /* ===== Skill Card ===== */
+
         .skill-box {
-            background: #fff;
             border: 1px solid #e3e3e3;
             border-radius: 16px;
+
             padding: 24px;
+
             list-style: none;
             cursor: pointer;
 
@@ -126,37 +139,58 @@
 
         .skill-box:hover {
             transform: translateY(-7px);
+
             border-color: #4a90e2;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+
+            box-shadow:
+                0 12px 28px rgba(0, 0, 0, 0.10);
         }
+
+
+        /* ===== Card Title ===== */
 
         .skill-box strong {
             display: block;
+
             font-size: 1.15rem;
-            margin-bottom: 8px;
-            color: #222;
             font-weight: 600;
+
+            margin-bottom: 8px;
         }
+
+
+        /* ===== Images ===== */
 
         .skill-box img {
             display: block;
+
             width: 100%;
+            max-width: 100%;
+
             max-height: 280px;
+
             object-fit: contain;
+
             margin: 15px auto 0;
 
             border-radius: 10px;
             border: 1px solid #ddd;
         }
 
-        /* Footer */
+
+        /* ===== Footer ===== */
+
         .footer-center {
             text-align: center;
-            padding: 35px 20px;
-            font-size: 0.9rem;
+
+            padding: 40px 20px;
+
+            font-size: 0.95rem;
             line-height: 1.8;
-            color: #777;
         }
+
+
+        /* ===== Email ===== */
 
         .footer-center a {
             color: #4a90e2;
@@ -167,28 +201,26 @@
             text-decoration: underline;
         }
 
-        /* Mobile */
+
+        /* ===== Mobile ===== */
+
         @media (max-width: 600px) {
 
             .welcome-section {
-                margin: 15px 15px 40px;
-                padding: 25px 15px;
+                padding: 20px 14px;
+                margin-bottom: 30px;
             }
 
             .welcome-section h1 {
-                font-size: 1.7rem;
+                font-size: 1.55rem;
             }
 
             .welcome-section h2 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
 
-            section {
-                margin-bottom: 40px;
-            }
-
-            section h2 {
-                font-size: 1.5rem;
+            .welcome-section p {
+                font-size: 0.85rem;
             }
 
             .skills-grid {
@@ -199,6 +231,7 @@
                 padding: 20px;
             }
         }
+
     </style>
 </head>
 
@@ -206,96 +239,140 @@
 
     <!-- Welcome -->
     <section id="welcome" class="welcome-section">
+
         <h1>สวัสดี!</h1>
+
         <h2>ฉันคือ PONGSAKORN</h2>
-        <p>นี่คือผลงานและความภาคภูมิใจของฉัน</p>
+
+        <p>
+            นี่คือผลงานและความภาคภูมิใจของฉัน
+        </p>
+
     </section>
 
 
     <!-- About -->
     <section id="about">
+
         <h2>เกี่ยวกับฉัน</h2>
+
         <p>
             ฉันเป็นนักเรียนที่ชอบในการออกแบบการเต้น
             และรักในการศึกษาภาษาอังกฤษ
         </p>
+
     </section>
 
 
     <!-- Projects -->
     <section id="projects">
+
         <h2>ผลงานของฉัน</h2>
 
         <div class="project">
+
             <h3>Choreography Project</h3>
+
             <p>
                 ออกแบบท่าเต้นและการประกวด Cover Dance
             </p>
+
         </div>
 
+
         <div class="project">
+
             <h3>English Translation</h3>
+
             <p>
                 แปลบทความภาษาอังกฤษให้กับคลิปวิดีโอสั้น
                 เพื่อฝึกทักษะภาษา
             </p>
+
         </div>
+
     </section>
 
 
     <!-- Skills -->
     <section id="skills">
+
         <h2>ทักษะของฉัน</h2>
 
         <ul class="skills-grid">
 
             <li class="skill-box">
+
                 <strong>Dance & Arts</strong>
+
                 การออกแบบท่าเต้น (Choreography)
+
             </li>
 
+
             <li class="skill-box">
+
                 <strong>Language Skills</strong>
+
                 ทักษะภาษาอังกฤษ
                 (การฟัง, การพูด และการแปลบทความ)
+
             </li>
 
+
             <li class="skill-box">
+
                 <strong>Audio Editing</strong>
-                การตัดต่อเสียงและมิกซ์เพลง
+
+                การตัดต่อเสียง, มิกซ์เพลง
+
             </li>
 
         </ul>
+
     </section>
 
 
     <!-- Computer Works -->
     <section id="computer-works">
+
         <h2>ผลงานวิชาคอมพิวเตอร์</h2>
 
         <ul class="skills-grid">
 
             <li class="skill-box">
+
                 <strong>งานที่ 1</strong>
+
                 Infographic
 
                 <img
                     src="ข้อควรระวังในแบ่งปันข้อมูลบนโซเชียลมีเดีย.png"
-                    alt="งาน Infographic"
+                    alt="งานที่ 1"
                 >
+
             </li>
 
+
             <li class="skill-box">
+
                 <strong>งานที่ 2</strong>
+
                 รายละเอียดหรือคำอธิบายเกี่ยวกับงานชิ้นที่ 2
+
             </li>
 
+
             <li class="skill-box">
+
                 <strong>งานที่ 3</strong>
+
                 รายละเอียดหรือคำอธิบายเกี่ยวกับงานชิ้นที่ 3
+
             </li>
 
         </ul>
+
     </section>
 
 
@@ -312,7 +389,8 @@
         <p>
             &copy;
             <span id="year"></span>
-            PONGSAKORN. All rights reserved.
+            PONGSAKORN.
+            All rights reserved.
         </p>
 
     </footer>
