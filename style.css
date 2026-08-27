@@ -15,55 +15,122 @@ HTML
 CSS
 @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600;700&family=Prompt:wght@300;400&display=swap');
 
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: 'Prompt', sans-serif;
     font-weight: 300;
     line-height: 1.7;
     margin: 0;
     padding: 0;
-    color: #4a4a4a;
+    color: #4d4650;
 
-    /* ✅ ไล่สีจากขอบหน้าจอ (ขาวไปชมพูเข้มแบบเห็นชัดๆ) */
-    min-height: 100vh; 
-    background-image: radial-gradient(circle, #ffffff 20%, #ffe0e0 70%, #ffd6d6 100%);
+    /* 🌅 ท้องฟ้ายามเย็น ไล่จากฟ้า → ชมพู → พีช */
+    min-height: 100vh;
+    background:
+        radial-gradient(
+            circle at 88% 8%,
+            rgba(255, 239, 190, 0.95) 0%,
+            rgba(255, 205, 178, 0.55) 12%,
+            transparent 30%
+        ),
+        linear-gradient(
+            135deg,
+            #a8c8e8 0%,
+            #c5cde8 25%,
+            #e8c4d5 55%,
+            #f3b8aa 78%,
+            #f7c89d 100%
+        );
+
     background-attachment: fixed;
 }
 
-/* ✅ เอาส่วนของ Header ออก เพราะใน HTML คุณใช้ <section id="welcome"> แทนแล้ว */
-/* แต่เราจะเปลี่ยนมาแต่งคลาส .welcome-section ให้โปร่งใสแทน เพื่อให้เห็นสีกระจายจากขอบของ body ครับ */
-.welcome-section {
-    text-align: center;
-    padding: 60px 20px;
-    background: transparent; /* เปลี่ยนจากสีเทา-ฟ้า เป็นโปร่งใสซะ! */
-    margin-bottom: 20px;
+
+/* ☀️ แสงอาทิตย์บริเวณมุมขวาบน */
+body::before {
+    content: "";
+    position: fixed;
+    top: -180px;
+    right: -180px;
+    width: 480px;
+    height: 480px;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(255, 245, 205, 0.8) 0%,
+        rgba(255, 220, 180, 0.35) 35%,
+        transparent 70%
+    );
+
+    pointer-events: none;
+    z-index: -1;
 }
 
-/* 🎨 เพิ่มตรงนี้: เปลี่ยนสีตัวอักษรคำว่า "สวัสดี!" */
+
+/* 💗 Welcome */
+.welcome-section {
+    text-align: center;
+    padding: 90px 20px 70px;
+    background: transparent;
+    margin: 0 auto 20px;
+}
+
+
+/* ✨ Mystery of Love */
 .welcome-section h1 {
     font-family: 'Kanit', sans-serif;
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 700;
-    color: #ff4a73; /* เปลี่ยนเป็นสีชมพูเข้มสดใส สะดุดตา */
+
+    color: #fffaf7;
+
     margin: 0;
+
+    text-shadow:
+        0 3px 15px rgba(111, 91, 105, 0.25),
+        0 0 30px rgba(255, 238, 214, 0.6);
 }
+
 
 .welcome-section h2 {
     font-family: 'Kanit', sans-serif;
-    color: #6d4c41; /* สีน้ำตาลอบอุ่น */
-    margin: 10px 0 0 0;
+    color: #fff8f4;
+    margin: 10px 0 0;
+
+    text-shadow:
+        0 2px 10px rgba(90, 75, 90, 0.2);
 }
 
-section {
+
+/* 🌸 กล่องเนื้อหา */
+section:not(.welcome-section) {
     padding: 30px;
     margin: 30px auto;
     max-width: 750px;
-    background: #ffffff;
-    border-radius: 16px;              /* เพิ่มความโค้งมนน่ารักเป็นมิตร */
-    box-shadow: 0 10px 25px rgba(255, 182, 185, 0.2); /* สไตล์เงาแบบฟุ้งกระจายอมชมพู */
-    border: 1px solid #fff0f0;         /* ขอบจางๆ เพิ่มความเนี๊ยบ */
+
+    background: rgba(255, 250, 248, 0.82);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 15px 40px rgba(117, 91, 111, 0.16),
+        0 4px 15px rgba(255, 190, 180, 0.15);
+
+    border: 1px solid rgba(255, 255, 255, 0.75);
+
+    backdrop-filter: blur(12px);
 }
 
-/* สำหรับจัดการ Grid ทักษะใน HTML ของคุณให้สวยงาม */
+
+/* 🌷 Grid ทักษะ */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -72,46 +139,80 @@ section {
     margin: 0;
 }
 
+
+/* 💕 Skill Card */
 .skill-box {
-    background-color: #fffafb;
-    border: 1px solid #ffe3e5;
-    border-radius: 12px;
+    background: rgba(255, 250, 250, 0.75);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
+    border-radius: 18px;
     padding: 20px;
+
     list-style: none;
     cursor: pointer;
-    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        background 0.35s ease;
 }
+
 
 .skill-box:hover {
-    transform: translateY(-5px);
-    border-color: #ff4a73;
-    box-shadow: 0 10px 20px rgba(255, 74, 115, 0.15);
-    background-color: #ffffff;
+    transform: translateY(-7px);
+
+    background: rgba(255, 255, 255, 0.95);
+
+    border-color: rgba(255, 190, 190, 0.7);
+
+    box-shadow:
+        0 15px 30px rgba(130, 100, 120, 0.16),
+        0 5px 15px rgba(255, 170, 160, 0.15);
 }
 
+
+/* 🌹 หัวข้อ Skill */
 .skill-box strong {
     display: block;
+
+    font-family: 'Kanit', sans-serif;
     font-size: 1.1rem;
+
     margin-bottom: 8px;
-    color: #ff4a73;
+
+    color: #d87886;
 }
 
+
+/* 🖼️ รูปภาพ */
 .skill-box img {
     display: block;
-    margin: 15px auto 0 auto;
+
+    margin: 15px auto 0;
+
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    border: 1px solid #ffe3e5;
+
+    border-radius: 12px;
+
+    border: 1px solid rgba(255, 220, 220, 0.8);
+
+    box-shadow:
+        0 6px 18px rgba(100, 80, 100, 0.08);
 }
 
+
+/* 🌅 Footer */
 .footer-center {
     text-align: center;
-    padding: 40px 20px;
+
+    padding: 50px 20px;
+
     font-size: 0.95rem;
-    color: #8c7b75;
-}
-    border-radius: 16px;
-    box-shadow: 0 10px 25px rgba(255, 182, 185, 0.15);
-    border: 1px solid #fff0f0;
+
+    color: rgba(255, 250, 248, 0.9);
+
+    text-shadow:
+        0 1px 8px rgba(90, 70, 80, 0.2);
 }
