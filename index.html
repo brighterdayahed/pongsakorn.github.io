@@ -5,149 +5,323 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="เว็บไซต์แสดงผลงานและทักษะของ PONGSAKORN">
     <title>ความภาคภูมิใจของ PONGSAKORN</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
-    
+
     <style>
-        /* จัดโครงสร้างให้แต่ละทักษะแบ่งเป็นช่อง ๆ ในแถวเดียวกัน */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Prompt', sans-serif;
+            margin: 0;
+            background: #f7f8fa;
+            color: #333;
+            line-height: 1.7;
+        }
+
+        section {
+            max-width: 1100px;
+            margin: 0 auto 50px;
+            padding: 0 20px;
+        }
+
+        section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        /* Welcome Banner */
+        .welcome-section {
+            max-width: 1100px;
+            text-align: center;
+            padding: 30px 20px;
+            margin: 25px auto 50px;
+
+            background: linear-gradient(
+                135deg,
+                #f5f7fa 0%,
+                #dfe6f0 100%
+            );
+
+            border-radius: 18px;
+            border: 1px solid #e3e7ed;
+        }
+
+        .welcome-section h1 {
+            font-size: 2rem;
+            margin: 0 0 2px;
+            font-weight: 600;
+        }
+
+        .welcome-section h2 {
+            font-size: 1.35rem;
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .welcome-section p {
+            color: #666;
+            font-style: italic;
+            margin: 8px 0 0;
+            font-size: 0.95rem;
+        }
+
+        /* Project Cards */
+        .project {
+            background: #fff;
+            padding: 22px 25px;
+            margin-bottom: 18px;
+            border-radius: 14px;
+            border: 1px solid #e7e7e7;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .project h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        /* Skills Grid */
         .skills-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(250px, 1fr)
+            );
+
             gap: 20px;
-            padding: 20px 0;
+            padding: 0;
+            margin: 0;
         }
 
-        /* ตกแต่งดีไซน์ของแต่ละช่องทักษะและช่องผลงาน */
         .skill-box {
-            background-color: #f9f9f9;
-            border: 2px solid #e3e3e3;
-            border-radius: 12px;
-            padding: 20px;
-            list-style: none; /* เอาจุดกลมๆ ข้างหน้าออก */
+            background: #fff;
+            border: 1px solid #e3e3e3;
+            border-radius: 16px;
+            padding: 24px;
+            list-style: none;
             cursor: pointer;
-            
-            /* ตั้งค่าความสมูทในการเด้ง */
-            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-                        box-shadow 0.3s ease, 
-                        border-color 0.3s ease;
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
         }
 
-        /* เอฟเฟกต์ตอนเอาเมาส์ไปชี้ หรือตอนใช้นิ้วกดบนมือถือ ให้กล่องเด้งขึ้นมา */
-        .skill-box:hover, .skill-box:active {
-            transform: translateY(-8px) scale(1.02); /* ลอยขึ้นและขยายออกเล็กน้อย */
-            border-color: #4a90e2; /* เปลี่ยนสีขอบตอนกด/ชี้ */
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12); /* เพิ่มเงาให้ดูมีมิติลอยขึ้นมา */
-            background-color: #ffffff;
+        .skill-box:hover {
+            transform: translateY(-7px);
+            border-color: #4a90e2;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
         }
 
-        /* ตกแต่งหัวข้อทักษะ / หัวข้องาน */
         .skill-box strong {
             display: block;
             font-size: 1.15rem;
             margin-bottom: 8px;
-            color: #333;
+            color: #222;
+            font-weight: 600;
         }
 
-        /* ตกแต่งรูปภาพผลงานเพิ่มเติมให้อยู่ในกรอบสวยงาม */
         .skill-box img {
             display: block;
-            margin: 15px auto 0 auto; /* จัดรูปให้อยู่ตรงกลางกล่องพอดี */
-            max-width: 100%;          /* ป้องกันไม่ให้รูปใหญ่เกินขนาดกล่อง */
-            height: auto;             /* รักษาอัตราส่วนภาพไม่ให้เบี้ยว */
-            border-radius: 8px;       /* ทำมุมมนให้เข้ากับกล่องหลัก */
+            width: 100%;
+            max-height: 280px;
+            object-fit: contain;
+            margin: 15px auto 0;
+
+            border-radius: 10px;
             border: 1px solid #ddd;
         }
 
-        /* สไตล์พิเศษสำหรับกล่องต้อนรับแรก เพื่อจัดข้อความให้อยู่ตรงกลาง */
-        .welcome-section {
-            text-align: center;
-            padding: 50px 20px;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); 
-            border-radius: 12px;
-            margin-bottom: 20px;
-        }
-
-        /* สไตล์สำหรับจัด Footer ให้อยู่กึ่งกลางหน้าเว็บ */
+        /* Footer */
         .footer-center {
             text-align: center;
-            padding: 40px 20px;
-            font-size: 0.95rem;
+            padding: 35px 20px;
+            font-size: 0.9rem;
             line-height: 1.8;
+            color: #777;
+        }
+
+        .footer-center a {
+            color: #4a90e2;
+            text-decoration: none;
+        }
+
+        .footer-center a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            .welcome-section {
+                margin: 15px 15px 40px;
+                padding: 25px 15px;
+            }
+
+            .welcome-section h1 {
+                font-size: 1.7rem;
+            }
+
+            .welcome-section h2 {
+                font-size: 1.2rem;
+            }
+
+            section {
+                margin-bottom: 40px;
+            }
+
+            section h2 {
+                font-size: 1.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skill-box {
+                padding: 20px;
+            }
         }
     </style>
 </head>
+
 <body>
 
+    <!-- Welcome -->
     <section id="welcome" class="welcome-section">
         <h1>สวัสดี!</h1>
         <h2>ฉันคือ PONGSAKORN</h2>
-        <p style="color: #555; font-style: italic; margin-top: 10px;">นี่คือผลงานและความภาคภูมิใจของฉัน</p>
+        <p>นี่คือผลงานและความภาคภูมิใจของฉัน</p>
     </section>
 
+
+    <!-- About -->
     <section id="about">
         <h2>เกี่ยวกับฉัน</h2>
-        <p>ฉันเป็นนักเรียนที่ชอบในการออกแบบการเต้นและรักในการศึกษาภาษาอังกฤษ</p>
+        <p>
+            ฉันเป็นนักเรียนที่ชอบในการออกแบบการเต้น
+            และรักในการศึกษาภาษาอังกฤษ
+        </p>
     </section>
 
+
+    <!-- Projects -->
     <section id="projects">
         <h2>ผลงานของฉัน</h2>
 
         <div class="project">
             <h3>Choreography Project</h3>
-            <p>ออกแบบท่าเต้นและการประกวด Cover Dance</p>
+            <p>
+                ออกแบบท่าเต้นและการประกวด Cover Dance
+            </p>
         </div>
 
         <div class="project">
             <h3>English Translation</h3>
-            <p>แปลบทความภาษาอังกฤษให้กับคลิปวิดีโอสั้นเพื่อฝึกทักษะภาษา</p>
+            <p>
+                แปลบทความภาษาอังกฤษให้กับคลิปวิดีโอสั้น
+                เพื่อฝึกทักษะภาษา
+            </p>
         </div>
     </section>
 
+
+    <!-- Skills -->
     <section id="skills">
         <h2>ทักษะของฉัน</h2>
+
         <ul class="skills-grid">
+
             <li class="skill-box">
-                <strong>Dance & Arts</strong> 
+                <strong>Dance & Arts</strong>
                 การออกแบบท่าเต้น (Choreography)
             </li>
+
             <li class="skill-box">
-                <strong>Language Skills</strong> 
-                ทักษะภาษาอังกฤษ (การฟัง, การพูด, และการแปลบทความ)
+                <strong>Language Skills</strong>
+                ทักษะภาษาอังกฤษ
+                (การฟัง, การพูด และการแปลบทความ)
             </li>
+
             <li class="skill-box">
-                <strong>Audio Editing</strong> 
-                การตัดต่อเสียง, มิกซ์เพลง
+                <strong>Audio Editing</strong>
+                การตัดต่อเสียงและมิกซ์เพลง
             </li>
+
         </ul>
     </section>
 
+
+    <!-- Computer Works -->
     <section id="computer-works">
         <h2>ผลงานวิชาคอมพิวเตอร์</h2>
+
         <ul class="skills-grid">
+
             <li class="skill-box">
                 <strong>งานที่ 1</strong>
                 Infographic
-                <img src="ข้อควรระวังในแบ่งปันข้อมูลบนโซเชียลมีเดีย.png" alt="งานที่ 1">
+
+                <img
+                    src="ข้อควรระวังในแบ่งปันข้อมูลบนโซเชียลมีเดีย.png"
+                    alt="งาน Infographic"
+                >
             </li>
+
             <li class="skill-box">
                 <strong>งานที่ 2</strong>
                 รายละเอียดหรือคำอธิบายเกี่ยวกับงานชิ้นที่ 2
             </li>
+
             <li class="skill-box">
                 <strong>งานที่ 3</strong>
                 รายละเอียดหรือคำอธิบายเกี่ยวกับงานชิ้นที่ 3
             </li>
+
         </ul>
     </section>
 
+
+    <!-- Footer -->
     <footer class="footer-center">
-        <p>ติดต่อฉันได้ที่: 
-            <a href="mailto:s34478@banbung.ac.th" style="color: #4a90e2; text-decoration: none;">s34478@banbung.ac.th</a>
+
+        <p>
+            ติดต่อฉันได้ที่:
+            <a href="mailto:s34478@banbung.ac.th">
+                s34478@banbung.ac.th
+            </a>
         </p>
-        <p>&copy; <span id="year"></span> PONGSAKORN. All rights reserved.</p>
+
+        <p>
+            &copy;
+            <span id="year"></span>
+            PONGSAKORN. All rights reserved.
+        </p>
+
     </footer>
 
+
     <script>
-        document.getElementById("year").textContent = new Date().getFullYear();
+        document.getElementById("year").textContent =
+            new Date().getFullYear();
     </script>
+
 </body>
 </html>
