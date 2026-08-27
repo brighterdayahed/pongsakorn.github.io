@@ -13,7 +13,7 @@ HTML
 เพื่อให้หน้าเว็บของคุณเชื่อมต่อกันอย่างสมบูรณ์แบบ ทั้งเรื่องไล่สีขอบชมพู และเปลี่ยนสีคำว่า "สวัสดี!" ผมรวมโค้ด CSS ล่าสุดที่แก้ไขจุดพังทั้งหมดมาให้แล้วครับ เอาชุดนี้ไปใส่ในไฟล์ style.css ได้เลย:
 
 CSS
-@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@600;700&family=Prompt:wght@300;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italianno&family=Kanit:wght@400;600;700&family=Prompt:wght@300;400&display=swap');
 
 * {
     box-sizing: border-box;
@@ -32,88 +32,106 @@ body {
     color: #514a52;
     min-height: 100vh;
 
-    /* Mystery of Love — sky & sunset */
+    /* Romantic sunset sky */
     background:
         radial-gradient(
-            circle at 90% 5%,
-            rgba(255, 249, 210, 1) 0%,
-            rgba(255, 224, 178, 0.8) 8%,
-            rgba(255, 194, 176, 0.35) 22%,
-            transparent 38%
+            circle at 88% 7%,
+            rgba(255, 247, 205, 1) 0%,
+            rgba(255, 220, 178, 0.75) 10%,
+            rgba(255, 190, 175, 0.3) 25%,
+            transparent 40%
         ),
         linear-gradient(
-            155deg,
-            #8fb9df 0%,
-            #a9c5e3 22%,
-            #c9c5df 42%,
-            #e4b8c9 62%,
-            #f2b6a6 80%,
-            #f7c99d 100%
+            150deg,
+            #91bce1 0%,
+            #aec8e4 25%,
+            #cfc5dc 45%,
+            #e3b9ca 65%,
+            #f1b4a6 82%,
+            #f6c99d 100%
         );
 
     background-attachment: fixed;
 }
 
-/* Soft sunlight */
+
+/* ☀️ Soft sunlight */
 body::before {
     content: "";
     position: fixed;
-    top: -230px;
-    right: -180px;
-    width: 520px;
-    height: 520px;
+    top: -200px;
+    right: -170px;
+    width: 450px;
+    height: 450px;
     border-radius: 50%;
+
     background: radial-gradient(
         circle,
-        rgba(255, 248, 211, 0.9) 0%,
-        rgba(255, 222, 180, 0.4) 35%,
+        rgba(255, 249, 214, 0.85) 0%,
+        rgba(255, 224, 180, 0.35) 38%,
         transparent 70%
     );
+
     pointer-events: none;
     z-index: -1;
 }
 
-/* Welcome */
+
+/* ✨ Small Welcome Banner */
 .welcome-section {
     text-align: center;
-    padding: 100px 20px 80px;
+    padding: 45px 20px 35px;
     background: transparent;
-    margin: 0 auto;
+    margin: 0 auto 10px;
 }
 
-/* Main title */
+
+/* 🌸 Elegant Thai title */
 .welcome-section h1 {
     font-family: 'Kanit', sans-serif;
-    font-size: 4rem;
-    font-weight: 700;
+    font-size: 2.4rem;
+    font-weight: 600;
+
     color: #fffaf5;
+
     margin: 0;
+
+    letter-spacing: 1px;
+
     text-shadow:
-        0 3px 18px rgba(86, 72, 90, 0.25),
-        0 0 35px rgba(255, 238, 205, 0.7);
+        0 3px 14px rgba(82, 68, 88, 0.25),
+        0 0 25px rgba(255, 238, 205, 0.65);
 }
+
 
 /* Subtitle */
 .welcome-section h2 {
     font-family: 'Kanit', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 400;
+
     color: #fff8f3;
-    margin: 10px 0 0;
-    text-shadow: 0 2px 12px rgba(80, 65, 80, 0.25);
+
+    margin: 5px 0 0;
+
+    text-shadow:
+        0 2px 10px rgba(80, 65, 80, 0.2);
 }
 
-/* Content cards */
+
+/* 💗 Main content */
 section:not(.welcome-section) {
     padding: 30px;
-    margin: 30px auto;
+    margin: 25px auto;
     max-width: 750px;
 
-    background: rgba(255, 250, 248, 0.78);
+    background: rgba(255, 250, 248, 0.76);
 
-    border-radius: 24px;
+    border-radius: 22px;
 
     box-shadow:
-        0 18px 45px rgba(104, 82, 105, 0.16),
-        0 5px 18px rgba(255, 177, 166, 0.14);
+        0 18px 40px rgba(105, 82, 105, 0.15),
+        0 5px 18px rgba(255, 175, 165, 0.14);
 
     border: 1px solid rgba(255, 255, 255, 0.8);
 
@@ -121,7 +139,16 @@ section:not(.welcome-section) {
     -webkit-backdrop-filter: blur(14px);
 }
 
-/* Skills */
+
+/* 🌷 Section headings */
+section:not(.welcome-section) h2 {
+    font-family: 'Kanit', sans-serif;
+    font-weight: 600;
+    color: #c96f82;
+}
+
+
+/* 🌸 Skills Grid */
 .skills-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -130,11 +157,17 @@ section:not(.welcome-section) {
     margin: 0;
 }
 
+
+/* 💕 Skill Card */
 .skill-box {
     background: rgba(255, 252, 251, 0.72);
-    border: 1px solid rgba(255, 255, 255, 0.85);
+
+    border: 1px solid rgba(255, 255, 255, 0.9);
+
     border-radius: 18px;
+
     padding: 20px;
+
     list-style: none;
     cursor: pointer;
 
@@ -144,39 +177,81 @@ section:not(.welcome-section) {
         background 0.35s ease;
 }
 
+
 .skill-box:hover {
-    transform: translateY(-7px);
+    transform: translateY(-6px);
+
     background: rgba(255, 255, 255, 0.94);
-    border-color: rgba(255, 190, 190, 0.8);
 
     box-shadow:
-        0 15px 30px rgba(112, 87, 110, 0.16),
-        0 5px 18px rgba(255, 166, 155, 0.18);
+        0 15px 30px rgba(110, 85, 110, 0.15),
+        0 5px 18px rgba(255, 170, 160, 0.18);
 }
 
+
+/* 🌹 Skill title */
 .skill-box strong {
     display: block;
+
     font-family: 'Kanit', sans-serif;
     font-size: 1.1rem;
+
     margin-bottom: 8px;
-    color: #d87886;
+
+    color: #d47787;
 }
 
+
+/* 🖼️ Images */
 .skill-box img {
     display: block;
+
     margin: 15px auto 0;
+
     max-width: 100%;
     height: auto;
+
     border-radius: 12px;
+
     border: 1px solid rgba(255, 220, 220, 0.8);
-    box-shadow: 0 6px 18px rgba(100, 80, 100, 0.08);
+
+    box-shadow:
+        0 6px 18px rgba(100, 80, 100, 0.08);
 }
 
-/* Footer */
+
+/* 🌅 Footer */
 .footer-center {
     text-align: center;
-    padding: 50px 20px;
-    font-size: 0.95rem;
+
+    padding: 40px 20px;
+
+    font-size: 0.9rem;
+
     color: rgba(255, 250, 248, 0.92);
-    text-shadow: 0 1px 8px rgba(80, 65, 80, 0.25);
+
+    text-shadow:
+        0 1px 8px rgba(80, 65, 80, 0.25);
+}
+
+
+/* 📱 Mobile */
+@media (max-width: 600px) {
+
+    .welcome-section {
+        padding: 35px 15px 25px;
+    }
+
+    .welcome-section h1 {
+        font-size: 2rem;
+    }
+
+    .welcome-section h2 {
+        font-size: 1rem;
+    }
+
+    section:not(.welcome-section) {
+        margin: 20px 15px;
+        padding: 22px;
+    }
 }
